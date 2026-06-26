@@ -3570,7 +3570,7 @@ def build_station_pages():
     hub = {
         "path": "station/",
         "title": "서울 지하철역 안내｜역세권 출장마사지 방문 기준｜간다GO",
-        "desc": "강남역·잠실역·홍대입구역·여의도역·성수역·용산역 등 역세권 방문 기준을 안내합니다.",
+        "desc": "서울 1~9호선 주요 환승역·거점역의 역세권 방문 기준과 인접 생활권·행정동을 안내합니다.",
         "h1": "서울 지하철역 안내",
         "breadcrumb": [("지하철역 안내", None)],
         "body": (
@@ -3584,11 +3584,18 @@ def build_station_pages():
     pages = [hub]
     for s in STATIONS:
         body = f"<p class=\"lead\">{s['intro']}</p>"
-        body += (
-            f"<section><h2>{s['name']} 인접 생활권</h2>"
-            f"<p>{s['name']}는 {s['transfer']}으로, 아래 생활권과 행정동이 인접합니다.</p>"
-            + _links(s["life"]) + "</section>"
-        )
+        if s.get("life"):
+            body += (
+                f"<section><h2>{s['name']} 인접 생활권</h2>"
+                f"<p>{s['name']}는 {s['transfer']}으로, 아래 생활권과 행정동이 인접합니다.</p>"
+                + _links(s["life"]) + "</section>"
+            )
+        else:
+            body += (
+                f"<section><h2>{s['name']} 인접 지역</h2>"
+                f"<p>{s['name']}는 {s['transfer']}으로, 아래 자치구·행정동이 인접합니다.</p>"
+                + _links(s["district"]) + "</section>"
+            )
         if s.get("detail"):
             body += (
                 f"<section><h2>{s['name']} 주변 방문 안내</h2>"
