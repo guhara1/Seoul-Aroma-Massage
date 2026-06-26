@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://seoul-aroma-massage.pages.dev/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/gangnam-yeoksam/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/jamsil-songpa/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/hongdae-hapjeong/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/yeouido-yeongdeungpo/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/seongsu-wangsimni/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/yongsan-seoul/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/mokdong-yangcheon/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/life/yeonsinnae-eunpyeong/</loc></url>
   <url><loc>https://seoul-aroma-massage.pages.dev/district/gangnam-gu/신사동/</loc></url>
   <url><loc>https://seoul-aroma-massage.pages.dev/district/gangnam-gu/압구정동/</loc></url>
   <url><loc>https://seoul-aroma-massage.pages.dev/district/gangnam-gu/청담동/</loc></url>
@@ -58,4 +66,10 @@
   <url><loc>https://seoul-aroma-massage.pages.dev/district/jung-gu/신당동/</loc></url>
   <url><loc>https://seoul-aroma-massage.pages.dev/district/jungnang-gu/상봉동/</loc></url>
   <url><loc>https://seoul-aroma-massage.pages.dev/district/yangcheon-gu/목동/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/station/gangnam-station/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/station/jamsil-station/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/station/hongik-univ-station/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/station/yeouido-station/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/station/seongsu-station/</loc></url>
+  <url><loc>https://seoul-aroma-massage.pages.dev/station/yongsan-station/</loc></url>
 </urlset>
