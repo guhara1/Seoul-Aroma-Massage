@@ -1,38 +1,31 @@
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const mainNav = document.querySelector('.main-nav');
+// 모바일 네비게이션 토글
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
 
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', function() {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('is-open');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', toggle.classList.contains('open'));
+    });
+
+    // 링크 클릭 시 메뉴 닫기
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // 뷰포트 크기 변경 시 메뉴 초기화
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        nav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
-
-  // Close menu when link is clicked
-  const navLinks = document.querySelectorAll('.main-nav a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      if (navToggle) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('is-open');
-      }
-    });
-  });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-  });
 });

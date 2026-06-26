@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seoul-aroma-massage.pages.dev/sitemap.xml
