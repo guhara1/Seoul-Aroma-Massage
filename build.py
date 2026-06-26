@@ -430,11 +430,29 @@ def render_page(page: dict) -> str:
 """
 
 
+def clean_generated() -> None:
+    """이전 빌드에서 남은 지역 페이지 디렉터리를 제거한다.
+
+    PAGES 의 최상위 경로 세그먼트(district·life·station·use·check·support·
+    reservation 등)만 통째로 삭제하므로 assets/·content/·.git 등 소스는 보존된다.
+    행정동 개편 등으로 사라진 동 페이지가 산출물에 남지 않도록 한다."""
+    tops = set()
+    for page in PAGES:
+        seg = page["path"].split("/")[0]
+        if seg:
+            tops.add(seg)
+    for seg in sorted(tops):
+        d = os.path.join(PUBLIC_DIR, seg)
+        if os.path.isdir(d):
+            shutil.rmtree(d)
+
+
 def build() -> None:
     report = []
     sitemap_urls = []
 
     os.makedirs(PUBLIC_DIR, exist_ok=True)
+    clean_generated()
 
     for page in PAGES:
         path = page["path"]

@@ -1,5 +1,7 @@
 # 서울 출장마사지 사이트 공통 설정
 
+from .regions import DISTRICTS as _DISTRICTS
+
 BASE_URL = "https://seoul-aroma-massage.pages.dev"
 
 BRAND = "간다GO"
@@ -38,14 +40,7 @@ NAV = [
         ("연신내·은평", "/life/yeonsinnae-eunpyeong/"),
     ]),
     ("행정구 안내", "/district/", [
-        ("강남구", "/district/gangnam-gu/"),
-        ("서초구", "/district/seocho-gu/"),
-        ("송파구", "/district/songpa-gu/"),
-        ("마포구", "/district/mapo-gu/"),
-        ("영등포구", "/district/yeongdeungpo-gu/"),
-        ("성동구", "/district/seongdong-gu/"),
-        ("용산구", "/district/yongsan-gu/"),
-        ("양천구", "/district/yangcheon-gu/"),
+        (d["name"], f"/district/{d['slug']}/") for d in _DISTRICTS
     ]),
     ("지하철역 안내", "/station/", [
         ("강남역", "/station/gangnam-station/"),

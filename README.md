@@ -10,9 +10,10 @@
 ```
 build.py            # 정적 사이트 빌드 스크립트 (content/ → 루트에 HTML 출력)
 content/
-  site.py           # 공통 설정 (브랜드·전화·텔레그램·NAV)
+  site.py           # 공통 설정 (브랜드·전화·텔레그램·NAV) — 행정구 메뉴는 regions에서 자동 생성
+  regions.py        # 25개 자치구 + 행정동 마스터 데이터 (순환 import 방지용 독립 모듈)
   pages.py          # 메인 + 예약 전 확인(check) + 이용 장소별(use)
-  geo.py            # 생활권(life) · 행정구(district) · 지하철역(station)
+  geo.py            # 생활권(life) · 행정구(district)/행정동 · 지하철역(station)
   info.py           # 예약 안내 · 고객센터 · 개인정보 · 이용 기준
 assets/             # style.css, nav.js, 파비콘 등
 ```
@@ -24,7 +25,11 @@ python3 build.py
 ```
 
 - 본문 2,000자 미만 페이지는 자동으로 `noindex` 처리되고 sitemap에서 제외됩니다
-  (콘텐츠 품질이 확보된 페이지부터 단계적으로 색인하는 정책).
+  (콘텐츠 품질이 확보된 페이지부터 단계적으로 색인하는 정책 = 도어웨이 방지).
+- 행정구(25개)와 그 하위 행정동 페이지는 내부링크 신호용으로 두되, 본문이
+  확보되기 전까지 `noindex` 상태로 유지합니다. 같은 지역이 1·2·3동처럼 번호로
+  나뉜 경우 대표 1개만 수록해 얇은 중복 페이지를 만들지 않습니다.
+- 이전 빌드에서 사라진 페이지(행정동 개편 등)는 빌드 시 자동으로 정리됩니다.
 - 모든 페이지 하단에 공통 요금표가 자동 삽입됩니다.
 - Organization / WebPage / Service / BreadcrumbList / FAQPage 스키마가 자동 생성됩니다.
 
