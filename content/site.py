@@ -1,6 +1,7 @@
 # 서울 출장마사지 사이트 공통 설정
 
 from .regions import DISTRICTS as _DISTRICTS
+from .geo import STATIONS as _STATIONS
 
 BASE_URL = "https://seoul-aroma-massage.pages.dev"
 
@@ -43,12 +44,7 @@ NAV = [
         (d["name"], f"/district/{d['slug']}/") for d in _DISTRICTS
     ]),
     ("지하철역 안내", "/station/", [
-        ("강남역", "/station/gangnam-station/"),
-        ("잠실역", "/station/jamsil-station/"),
-        ("홍대입구역", "/station/hongik-univ-station/"),
-        ("여의도역", "/station/yeouido-station/"),
-        ("성수역", "/station/seongsu-station/"),
-        ("용산역", "/station/yongsan-station/"),
+        (s["name"], f"/station/{s['slug']}/") for s in _STATIONS
     ]),
     ("예약 안내", "/reservation/", []),
     ("운영 기준", "/support/", [
